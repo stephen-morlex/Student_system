@@ -29,4 +29,8 @@ class Student extends Model
     {
         return $this->hasMany(Student_Exam_Result::class);
     }
+    public function section(): BelongsTo
+    {
+        return $this->belongsTo(Section::class);
+    }
 }

@@ -20,4 +20,8 @@ class School extends Model
     {
         return $this->hasMany(Student::class);
     }
+    public function level(): HasMany
+    {
+        return $this->hasMany(SchoolLevel::class);
+    }
 }

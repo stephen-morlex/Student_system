@@ -2,12 +2,10 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\ExamResource\Pages;
-use App\Filament\Resources\ExamResource\RelationManagers;
-use App\Models\Exam;
+use App\Filament\Resources\SchoolLevelResource\Pages;
+use App\Filament\Resources\SchoolLevelResource\RelationManagers;
+use App\Models\SchoolLevel;
 use Filament\Forms;
-use Filament\Forms\Components\CheckboxList;
-use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -15,9 +13,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class ExamResource extends Resource
+class SchoolLevelResource extends Resource
 {
-    protected static ?string $model = Exam::class;
+    protected static ?string $model = SchoolLevel::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -27,13 +25,6 @@ class ExamResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required()
                     ->maxLength(255)
-                    ->label('Exam Title'),
-                DatePicker::make('exam_date'),
-                CheckboxList::make('subjects')
-                    ->relationship(name: 'subjects', titleAttribute: 'name')->columns(2)
-                    ->gridDirection('column')
-                    ->label("Select Subjects avaiable for this examination period")
-
             ]);
     }
 
@@ -41,8 +32,7 @@ class ExamResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('exam_date'),
+                Tables\Columns\TextColumn::make('name')
             ])
             ->filters([
                 //
@@ -67,9 +57,9 @@ class ExamResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListExams::route('/'),
-            'create' => Pages\CreateExam::route('/create'),
-            'edit' => Pages\EditExam::route('/{record}/edit'),
+            'index' => Pages\ListSchoolLevels::route('/'),
+            'create' => Pages\CreateSchoolLevel::route('/create'),
+            'edit' => Pages\EditSchoolLevel::route('/{record}/edit'),
         ];
     }
 }

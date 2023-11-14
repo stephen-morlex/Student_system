@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\SubjectResource\Pages;
 use App\Filament\Resources\SubjectResource\RelationManagers;
+use App\Models\Section;
 use App\Models\Subject;
 use Filament\Forms;
 use Filament\Forms\Components\Select;
@@ -28,13 +29,9 @@ class SubjectResource extends Resource
                 Forms\Components\TextInput::make('name')->required()
                     ->maxLength(255)
                     ->label('Subject name'),
-                Select::make('section')
+                Select::make('section_id')
                     ->label('Subject Section')
-                    ->options([
-                        'art' => 'Art',
-                        'science' => 'Science',
-                        'general' => 'General'
-                    ])
+                    ->options(Section::all()->pluck('name', 'id'))
                     ->searchable()
             ]);
     }
@@ -44,7 +41,7 @@ class SubjectResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name'),
-                Tables\Columns\TextColumn::make('section'),
+                Tables\Columns\TextColumn::make('section.name'),
             ])
             ->filters([
                 //

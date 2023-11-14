@@ -5,8 +5,11 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\StudentResource\Pages;
 use App\Filament\Resources\StudentResource\RelationManagers;
 use App\Models\School;
+use App\Models\Section;
 use App\Models\Student;
+use App\Models\Subject;
 use Filament\Forms;
+use Filament\Forms\Components\CheckboxList;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -39,7 +42,20 @@ class StudentResource extends Resource
                     ->label('Student School')
                     ->options(School::all()->pluck('name', 'id'))
                     ->searchable()
-                    ->required()
+                    ->required(),
+                Select::make('section_id')
+                    ->label('Subject Section')
+                    ->options(Section::all()->pluck('name', 'id'))
+                    ->searchable()
+                    ->live(),
+                Select::make('section_id')
+                    ->label('Subject Section')
+                    ->options(Section::all()->pluck('name', 'id'))
+                    ->searchable()
+                    ->live(),
+                //  // CheckboxList::make('subjects')
+                // //     ->relationship(name: 'subjects', titleAttribute: 'name')->columns(2)
+                //  //    ->gridDirection('column')
             ]);
     }
 
