@@ -1,0 +1,3 @@
+- Note:
+ - School type (p or S) 
+ - private or public

@@ -13,7 +13,7 @@ class StudentExamResultPolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -21,7 +21,7 @@ class StudentExamResultPolicy
      */
     public function view(User $user, Student_Exam_Result $studentExamResult): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -29,7 +29,7 @@ class StudentExamResultPolicy
      */
     public function create(User $user): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -37,7 +37,7 @@ class StudentExamResultPolicy
      */
     public function update(User $user, Student_Exam_Result $studentExamResult): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -45,7 +45,7 @@ class StudentExamResultPolicy
      */
     public function delete(User $user, Student_Exam_Result $studentExamResult): bool
     {
-        //
+        return true;
     }
 
     /**
@@ -53,7 +53,7 @@ class StudentExamResultPolicy
      */
     public function restore(User $user, Student_Exam_Result $studentExamResult): bool
     {
-        //
+        return true;
     }
 
     /**
