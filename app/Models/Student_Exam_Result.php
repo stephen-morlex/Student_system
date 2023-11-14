@@ -5,19 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class County extends Model
+class Student_Exam_Result extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function state(): BelongsTo
+
+    public function student(): BelongsTo
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(Student::class);
     }
-    public function School(): HasMany
+
+    public function subject(): BelongsTo
     {
-        return $this->hasMany(School::class);
+        return $this->belongsTo(Subject::class);
     }
 }

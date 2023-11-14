@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class County extends Model
+class School extends Model
 {
     use HasFactory;
     protected $guarded = [];
 
-    public function state(): BelongsTo
+    public function county(): BelongsTo
     {
-        return $this->belongsTo(State::class);
+        return $this->belongsTo(County::class);
     }
-    public function School(): HasMany
+    public function students(): HasMany
     {
-        return $this->hasMany(School::class);
+        return $this->hasMany(Student::class);
     }
 }
