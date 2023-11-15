@@ -46,16 +46,16 @@ class StudentResource extends Resource
                 Select::make('section_id')
                     ->label('Subject Section')
                     ->options(Section::all()->pluck('name', 'id'))
-                    ->searchable()
+                    ->searchable()->native(false)
                     ->live(),
                 Select::make('section_id')
                     ->label('Subject Section')
                     ->options(Section::all()->pluck('name', 'id'))
-                    ->searchable()
+                    ->searchable()->native(false)
                     ->live(),
                 //  // CheckboxList::make('subjects')
                 // //     ->relationship(name: 'subjects', titleAttribute: 'name')->columns(2)
-                //  //    ->gridDirection('column')
+                //  //       ->gridDirection('column')
             ]);
     }
 
